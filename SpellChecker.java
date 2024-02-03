@@ -57,7 +57,11 @@ public class SpellChecker {
 			distance = levenshtein(word, dictionary[i]);
 			if (distance < min) {
 				min = distance;
-				closest_word = dictionary[i];
+				if (distance <= threshold) {
+					closest_word = dictionary[i];
+				} else {
+					closest_word = word;
+				}
 			}
 		}
 		return closest_word;
